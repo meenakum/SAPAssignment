@@ -20,7 +20,7 @@ exports.getTask = (req, res) => {
 
 
 exports.createTask = (req, res) => {
-  
+
   // we will get json data from the frontend i.e. req.body
   // create a Task instance by passing 'task' field from 'req.body'
   let task = new Task({
@@ -54,6 +54,7 @@ exports.updateTask = (req, res) => {
   });
 };
 
+// API used for updating single value
 exports.patchTask = (req, res) => {
   // To change specific value
   Task.findOneAndUpdate({ taskval: req.params.id }, {
@@ -62,6 +63,30 @@ exports.patchTask = (req, res) => {
     res.send({ 'message': 'updated successfully' });
   });
 };
+
+//API used for checking due date
+exports.patchTaskfromAPI = (req, res) => {
+  Task.findOne({
+    $or: [{ taskval: req.params.id }]
+  }).then(val => {
+    let currentDate = new Date().toJSON().split("T")[0];
+    let lastDate = new Date(val.endDate).toJSON().split("T")[0];
+    if (lastDate >= currentDate) {
+
+      Task.findOneAndUpdate({ taskval: req.params.id }, {
+        $set: { completed: true }
+      }).then(() => {
+        res.send({ 'message': 'updated successfully' });
+      });
+    }
+    else {
+      res.send({ 'message': 'Due date has been passed' });
+    }
+  });
+
+
+};
+
 
 exports.deleteTask = (req, res) => {
   // Delete selected task
