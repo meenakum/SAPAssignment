@@ -1,0 +1,37 @@
+<div class="centered-content">
+	<div class="modal-box">
+		<h1 class="title" *ngIf="addTask">New Task</h1>
+		<h1 class="title" *ngIf="!addTask">Edit Task</h1>
+		<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+
+			<div class="form-row">
+				<label class="required" for="title">Task Name</label>
+				<input id="title" type="text" required formControlName="title"
+					class="input has-background-light is-medium" />
+			</div>
+
+			<div class="form-row">
+				<label class="required" for="startDate">Enter start date</label>
+				<input id="startDate" type="datetime-local" required formControlName="startDate"
+					class="input has-background-light is-medium" />
+			</div>
+
+			<div class="form-row">
+				<label class="required" for="endDate">Enter end datek</label>
+				<input id="endDate" type="datetime-local" required formControlName="endDate"
+					class="input has-background-light is-medium" />
+			</div>
+
+			<br><br>
+			<div class="form-group">
+
+				<button class="button is-primary has-text-white is-medium">
+					Create
+				</button>
+				<button class="button is-primary has-text-white is-medium" routerLink="/task">Cancel</button>
+			</div>
+		</form>
+
+
+	</div>
+</div>

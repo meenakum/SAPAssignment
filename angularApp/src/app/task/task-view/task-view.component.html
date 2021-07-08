@@ -1,0 +1,53 @@
+<div class="centered-content">
+  <div class="task-manager-container">
+
+    <div class="task-list-container has-background-light">
+      <div *ngIf="tasks">
+        <div class="top-bar">
+          <h1 class="title has-text-primary">
+            Tasks
+          </h1>
+        </div>
+
+
+
+        <!-- Task Elements -->
+        <div class="task" *ngFor="let task of tasks">
+
+          <div (click)="onTaskClick(task, task._id)">
+            <div>Title - {{ task.title }}</div>
+            <div>
+              <span>Start date - {{ task.startDate}}</span>&nbsp;&nbsp;
+              <span>End date - {{ task.endDate}}</span>
+            </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="task-buttons" *ngIf="!task.completed">
+            <button routerLink="editTask/{{task.taskval}}" class="btn">Edit</button>
+          </div>
+          <div class="task-buttons">
+            <button (click)="onDeleteTaskClick(task.taskval)" class="btn "> Delete
+            </button>
+          </div>
+          <div *ngIf="task.completed" class="MarkedAsDone">Marked as Done
+          </div>
+        </div>
+
+
+      </div>
+
+      <div>
+        <span *ngIf=tasks>
+          <h3 class="empty-state-text">Add new task</h3>
+        </span>
+        <span *ngIf=!tasks>
+          <h3 class="empty-state-text">No tasks are found, please add a new one</h3>
+        </span>
+
+        <a routerLink="addTask" class="circle-add-button button is-primary">+</a>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
