@@ -17,8 +17,7 @@
           <div (click)="onTaskClick(task, task._id)">
             <div>Title - {{ task.title }}</div>
             <div>
-              <span>Start date - {{ task.startDate}}</span>&nbsp;&nbsp;
-              <span>End date - {{ task.endDate}}</span>
+              <span>Task Due Date - {{ task.endDate}}</span>
             </div>
           </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <div class="task-buttons" *ngIf="!task.completed">
@@ -44,6 +43,7 @@
         </span>
 
         <a routerLink="addTask" class="circle-add-button button is-primary">+</a>
+      
 
       </div>
 

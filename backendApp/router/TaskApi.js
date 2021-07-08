@@ -20,13 +20,13 @@ exports.getTask = (req, res) => {
 
 
 exports.createTask = (req, res) => {
+  
   // we will get json data from the frontend i.e. req.body
   // create a Task instance by passing 'task' field from 'req.body'
   let task = new Task({
     taskval: req.body.taskval,
     title: req.body.title,
     completed: req.body.completed,
-    startDate: req.body.startDate,
     endDate: req.body.endDate
   }
   )

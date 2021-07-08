@@ -12,10 +12,6 @@ const Task = new mongoose.Schema({
     minlength: 2,
     maxlength: 50
   },
-  startDate: {
-    type: Date,
-    required: true,
-  },
   completed: {
     type: Boolean,
     required: true,

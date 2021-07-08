@@ -36,7 +36,6 @@ export class NewTaskComponent implements OnInit {
       title: [''],
       taskval: [this.taskval],
       completed: [false],
-      startDate: [''],
       endDate: [''],
     });
 
@@ -80,7 +79,7 @@ export class NewTaskComponent implements OnInit {
       .subscribe({
         next: () => {
           window.alert('Task Updated');
-          this.router.navigate(['../'], { relativeTo: this.route });
+          this.router.navigate(['../../'], { relativeTo: this.route });
         },
         error: error => {
           console.log(error);

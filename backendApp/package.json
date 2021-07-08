@@ -22,6 +22,8 @@
     "config": "^3.3.6",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-validation": "^0.4.5",
+    "joi": "^7.2.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.14",
     "nodemon": "^2.0.7",
