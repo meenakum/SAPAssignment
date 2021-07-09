@@ -35,14 +35,18 @@
       </div>
 
       <div>
-        <span *ngIf=tasks>
-          <h3 class="empty-state-text">Add new task</h3>
-        </span>
-        <span *ngIf=!tasks>
-          <h3 class="empty-state-text">No tasks are found, please add a new one</h3>
+        
+        <span *ngIf="tasks.length == 0; else TaskBLock">
+          <h3 class="empty-state-text">No tasks are found, please add a new one  >>></h3>
         </span>
 
-        <a routerLink="addTask" class="circle-add-button button is-primary">+</a>
+        <ng-template #TaskBLock>
+          <span>
+            <h3 class="empty-state-text">Add new task >>></h3>
+          </span>
+        </ng-template>
+
+        <button routerLink="addTask" class="circle-add-button button is-primary">+</button>
       
 
       </div>
