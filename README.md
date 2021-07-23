@@ -1,3 +1,3 @@
 # TaskManagementApp
 
--- Move to master Branch
+-- Checkout master Branch
